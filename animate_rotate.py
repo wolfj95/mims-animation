@@ -4,7 +4,7 @@ from helpers import update_position, setup
 import settings
 import time
 
-def animate_rotate(num_frames, sidelen, color, sleeptime):
+def draw_animation(num_frames, sidelen, color, sleeptime):
     for i in range(num_frames):
         if i < num_frames//3:
             right(1)
@@ -26,7 +26,7 @@ def main():
 
     for i in range(settings.NUMREPEATS):
         setup(settings.START_X,settings.START_Y)
-        animate_rotate(settings.NUMFRAMES, settings.SIDELEN, settings.COLOR, settings.SLEEPTIME)
+        draw_animation(settings.NUMFRAMES, settings.SIDELEN, settings.COLOR, settings.SLEEPTIME)
     input("Press enter...")
 if __name__ == '__main__':
     main()
