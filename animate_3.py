@@ -22,13 +22,12 @@ def draw_animation(num_frames, radius, speedfactor, color, sleeptime):
         clear()
 
 def main():
-    screen = Screen()
-    screen.setup(settings.SCREENWIDTH,settings.SCREENHEIGHT)
-
     for i in range(settings.NUMREPEATS):
         setup(settings.START_X,settings.START_Y)
         draw_animation(settings.NUMFRAMES, settings.RADIUS, settings.SPEEDFACTOR, settings.COLOR, settings.SLEEPTIME)
     input("Press enter...")
 
 if __name__ == '__main__':
+    screen = Screen()
+    screen.setup(settings.SCREENWIDTH,settings.SCREENHEIGHT)
     main()
