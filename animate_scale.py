@@ -21,8 +21,7 @@ def animate_scale(num_frames, radius, speedfactor, color, sleeptime):
         time.sleep(sleeptime)
         clear()
 
-
-if __name__ == '__main__':
+def main():
     screen = Screen()
     screen.setup(settings.SCREENWIDTH,settings.SCREENHEIGHT)
 
@@ -30,3 +29,6 @@ if __name__ == '__main__':
         setup(settings.START_X,settings.START_Y)
         animate(settings.NUMFRAMES, settings.RADIUS, settings.SPEEDFACTOR, settings.COLOR, settings.SLEEPTIME)
     input("Press enter...")
+    
+if __name__ == '__main__':
+    main()
