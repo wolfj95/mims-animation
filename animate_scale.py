@@ -1,0 +1,32 @@
+from turtle import Screen, clear
+from parts import draw_triangle, customized_circle
+from helpers import update_position, restore_state_when_finished, setup
+import settings
+import time
+
+def animate_scale(num_frames, radius, speedfactor, color, sleeptime):
+    for i in range(num_frames//2):
+        new_size = radius + i*speedfactor
+        customized_circle(new_size, color)
+        screen.update()
+        time.sleep(settings.sleeptime)
+        clear()
+
+    max_size = radius + num_frames//2*speedfactor
+
+    for i in range(num_frames//2):
+        new_size = max_size - i*speedfactor
+        customized_circle(new_size, color)
+        screen.update()
+        time.sleep(sleeptime)
+        clear()
+
+
+if __name__ == '__main__':
+    screen = Screen()
+    screen.setup(settings.SCREENWIDTH,settings.SCREENHEIGHT)
+
+    for i in range(settings.NUMREPEATS):
+        setup(settings.START_X,settings.START_Y)
+        animate(settings.NUMFRAMES, settings.RADIUS, settings.SPEEDFACTOR, settings.COLOR, settings.SLEEPTIME)
+    input("Press enter...")
