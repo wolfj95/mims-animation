@@ -1,21 +1,24 @@
-from turtle import Screen, clear, forward, penup, pendown
-from parts import draw_triangle, customized_circle
-from helpers import update_position, restore_state_when_finished, setup
+from turtle import Screen, clear, right
+from parts import draw_triangle
+from helpers import update_position, setup
 import settings
 import time
 
 def draw_animation(num_frames, sidelen, color, sleeptime):
     for i in range(num_frames):
-        if i < num_frames // 2:
-            forward(1)
-        if i > num_frames // 2:
-            penup()
-            forward(-1)
-            pendown()
-        draw_triangle(sidelen, color)
+        if i < num_frames//3:
+            right(1)
+            draw_triangle(sidelen, color)
+        if i > num_frames//3 and i < 2*num_frames//3:
+            right(5)
+            draw_triangle(sidelen,color)
+        if i > 2*num_frames//3:
+            right(i)
+            draw_triangle(sidelen, color)
         screen.update()
         time.sleep(sleeptime)
         clear()
+
 
 def main():
     for i in range(settings.NUMREPEATS):
