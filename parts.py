@@ -3,19 +3,18 @@ from helpers import restore_state_when_finished
 
 import math
 
-def draw_triangle(sideLength, colorname):
+def draw_triangle(side_len, color_name):
     #This function draws an equilateral triangle
     with restore_state_when_finished():
-        color(colorname)
+        color(color_name)
         begin_fill()
         for i in range(3):
-            forward(sideLength)
+            forward(side_len)
             right(120)
         end_fill()
 
-
-def customized_circle(size, colorname):
-    color(colorname)
+def customized_circle(size, color_name):
+    color(color_name)
     begin_fill()
     circle(size)
     end_fill()
