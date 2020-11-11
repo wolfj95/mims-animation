@@ -1,1 +1,1 @@
-# decomposition-lab
+# lab-decomposition
