@@ -9,13 +9,12 @@ from itertools import chain, cycle
 def setup(x, y):
     '''Sets up the turtle, ready to draw,
     at the given coordinates'''
+    hideturtle()
     penup()
     goto(x, y)
     pendown()
     speed(0)
-    hideturtle()
     setheading(0)
-    tracer(0)
 
 def fly(x,y):
     "Moves forward `distance` without drawing."
@@ -72,6 +71,14 @@ class no_delay:
         update()
         tracer(self.n, self.delay)
 
+# -----------------------------------------------------------------------------
+# ! ADVANCED !
+# -----------------------------------------------------------------------------
+# The code below uses some cool ideas that are far ahead of what we've studied
+# in class. If you're interested, feel free to read it--and ask a teacher if
+# you get stuck!
+# -----------------------------------------------------------------------------
+
 def generate_animation_settings(settings):
     settings = {key: make_generator(value) for key, value in settings.items()}
     while True:
@@ -82,14 +89,6 @@ def make_generator(setting):
         return cycle(setting)
     else:
         return cycle([setting])
-
-# -----------------------------------------------------------------------------
-# ! ADVANCED !
-# -----------------------------------------------------------------------------
-# The code below uses some cool ideas that are far ahead of what we've studied
-# in class. If you're interested, feel free to read it--and ask a teacher if
-# you get stuck!
-# -----------------------------------------------------------------------------
 
 def interpolate(start, stop, num_steps):
     """
@@ -110,26 +109,3 @@ def mirror(values):
     """
     values = list(values)
     return chain(values, reversed(values))
-
-
-def grid(size, rows, columns):
-    "Draws a grid of squares"
-    pass
-    for i in range(rows):
-        for each_side in range(columns):
-            square(size)
-            forward(size)
-        left(90)
-        forward(size)
-        left(90)
-        forward(size*columns)
-        left(180)
-
-def square(size):
-    "Draws a square with each side having a side length of `size`."
-    color("turquoise")
-    begin_fill()
-    for each_side in range(0,4):
-        forward(size)
-        left(90)
-    end_fill()
